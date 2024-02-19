@@ -1,0 +1,57 @@
+.navContainer {
+    position: fixed;
+    height: 100%; 
+    width: 200px; 
+    background: #222;
+    color: white;
+    left: 0;
+    padding: 20px;
+    margin-top: -100px;
+    box-shadow: 10px -2px 11px -6px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 10px -2px 11px -6px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px -2px 11px -6px rgba(0,0,0,0.75);
+}
+
+.navContainer h1 {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navContainer div {
+    display: flex;
+}
+
+.navContainer div a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+.navContainer div a:hover {
+    color: #0f0;
+    border-bottom: 2px solid greenyellow
+}
+
+.navContainer h1 {
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.navContainer div {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px;
+}
+
+.acceuilLink {
+    margin: 20px;
+    
+}
+
+.mespostsLink {
+    margin: 20px;
+}

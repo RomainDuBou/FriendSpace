@@ -1,35 +1,35 @@
 .OnlinefriendsContainer {
-  height: 100vh;
-  width: 220px;
-  position: fixed;
-  right: 0;
-  background-color: #fff;
-  overflow-y: scroll;
-}
-
-.OnlinefriendsContainer img {
-  width: 30px;
-  height: auto;
-  border-radius: 50%;
-  position: relative;
-  bottom: 10px;
-  left: 10px;
-}
-
-.OnlinefriendsContainer span {
-    margin-right: 10px;
-}
-
-.friendsContainer {
-  margin-top: 120px;
-}
-
-.friendsContainer h2 {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.friends {
-  display: flex;
-  margin: 20px;
-}
+    height: 100vh;
+    width: 220px;
+    position: fixed;
+    right: 0;
+    background-color: #fff;
+    overflow-y: scroll;
+  }
+  
+  .OnlinefriendsContainer img {
+    width: 30px;
+    height: auto;
+    border-radius: 50%;
+    position: relative;
+    bottom: 10px;
+    left: 10px;
+  }
+  
+  .OnlinefriendsContainer span {
+      margin-right: 10px;
+  }
+  
+  .friendsContainer {
+    margin-top: 120px;
+  }
+  
+  .friendsContainer h2 {
+      text-align: center;
+      margin-bottom: 40px;
+  }
+  
+  .friends {
+    display: flex;
+    margin: 20px;
+  }

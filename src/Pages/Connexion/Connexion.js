@@ -30,7 +30,7 @@ function Connexion() {
 
         const data = await response.json();
 
-        if (response.status === 401) {
+        if (response.status === 401 || !data.success) {
             setMessage("Email ou mot de passe incorret");
             return;
         }
@@ -42,6 +42,12 @@ function Connexion() {
 
         const token = data.token;
         setMessage("Vous êtes connecté");
+
+
+        console.log(response.status);
+        console.log(response);
+        console.log(data);
+        localStorage.setItem("token", token);
 
 
         navigate("/profil");

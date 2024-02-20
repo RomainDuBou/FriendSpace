@@ -6,6 +6,10 @@ import { Link } from "react-router-dom";
 function Inscription() {
     const [lastname, setLastname] = useState("");
     const [firstname, setFirstname] = useState("");
+    const [age, setAge] = useState(""); // Nouvelle constante pour l'âge
+    const [phoneNumber, setPhoneNumber] = useState(""); // Nouvelle constante pour le numéro de téléphone
+    const [postalCode, setPostalCode] = useState(""); // Nouvelle constante pour le code postal
+    const [city, setCity] = useState(""); // Nouvelle constante pour la ville
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState("");
@@ -22,7 +26,11 @@ function Inscription() {
                 email: email,
                 password: password,
                 firstname: firstname,
-                lastname: lastname
+                lastname: lastname,
+                age: age, // Inclure l'âge dans la requête
+                phoneNumber: phoneNumber, // Inclure le numéro de téléphone dans la requête
+                postalCode: postalCode, // Inclure le code postal dans la requête
+                city: city // Inclure la ville dans la requête
             })
         };
         const response = await fetch(

@@ -47,18 +47,18 @@ function Inscription() {
 
     return (
 
-        <body>
+        <div className='inscriptionContainer'>
             <section>
                 <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
                 <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
 
-                <div class="signin">
+                <div className="signin">
 
-                    <div class="content">
+                    <div className="content">
 
                         <h2>S'inscrire</h2>
 
-                        <div class="form">
+                        <div className="form">
 
                             <form onSubmit={register}>
 
@@ -76,24 +76,24 @@ function Inscription() {
                                         required /> <i>Nom</i>
                                 </div>
 
-                                <div class="inputBox">
+                                <div className="inputBox">
                                     <input type="mail"
                                         onChange={(e) => setEmail(e.target.value)}
                                         value={email}
                                         required /> <i>Email</i>
                                 </div>
 
-                                <div class="inputBox">
+                                <div className="inputBox">
                                     <input type="password"
                                         onChange={(e) => setPassword(e.target.value)}
                                         required /> <i>Password</i>
 
                                 </div>
 
-                                <div class="links"><Link to="/connexion">Déjà un compte ? Se connecter</Link>
+                                <div className="links"><Link to="/">Déjà un compte ? Se connecter</Link>
                                 </div>
 
-                                <div class="inputBox">
+                                <div className="inputBox">
 
                                     <input type="submit" value="Se connecter" />
                                     {message && <div className='messageContainer'>{message}</div>}
@@ -105,7 +105,7 @@ function Inscription() {
                     </div>
                 </div>
             </section>
-        </body>
+        </div>
 
     );
 

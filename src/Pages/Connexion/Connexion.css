@@ -5,7 +5,7 @@
   box-sizing: border-box;
   font-family: "Quicksand", sans-serif;
 }
-body {
+.connexionContainer, .inscriptionContainer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,7 +23,7 @@ section {
   flex-wrap: wrap;
   overflow: hidden;
 }
-section::before {
+.connexionAnimation::before {
   content: "";
   position: absolute;
   width: 100%;

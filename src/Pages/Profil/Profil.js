@@ -15,7 +15,9 @@ function Profil() {
             <div className="profilInfoContainer">
                 <h1>Modifier le profil</h1>
                 <hr></hr>
-                
+
+
+
             </div>
 
         </div>

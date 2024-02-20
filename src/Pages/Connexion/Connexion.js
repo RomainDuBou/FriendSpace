@@ -46,7 +46,6 @@ function Connexion() {
 
         navigate("/profil");
 
-
     };
 
     return (

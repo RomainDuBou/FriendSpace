@@ -1,13 +1,24 @@
 import './MesPosts.css'
+import Header from '../../Composants/Header/Header';
+import Onlinefriends from '../../Composants/Onlinefriends/Onlinefriends';
+import Nav from '../../Composants/Nav/Nav';
 
-function MesPosts () {
+function MesPosts() {
 
-return (
-    
-    <div>
+    return (
 
-    </div>
+        <div className='mesPostsContainer'>
 
-)}
+            < Header />
+
+            < Onlinefriends />
+
+            < Nav />
+
+
+        </div>
+
+    )
+}
 
 export default MesPosts;

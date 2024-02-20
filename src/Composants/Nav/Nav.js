@@ -10,22 +10,27 @@ function Nav() {
         // Vous devriez avoir une fonction pour gérer cela dans votre application
         // Par exemple, vous pouvez utiliser localStorage ou sessionStorage
         localStorage.removeItem("token");
- 
+
         // Rediriger vers la page de connexion
         navigate("/");
     };
- 
+
 
 
     const isProfilPage = window.location.pathname === "/profil";
-    const isStaffPage = window.location.pathname === "/staff";
+    const isMesPostsPage = window.location.pathname === "/mesposts";
+    const isAccueilPage = window.location.pathname === "/accueil";
 
     return (
-        <nav className={`navContainer ${isProfilPage ? "homeStyle" : isStaffPage ? "staffStyle" : ""}`}>
+        <nav className={`navContainer ${isProfilPage ? "homeStyle" : isMesPostsPage ? "mespostsStyle" : isAccueilPage ? "accueilStyle" : ""}`}>
             <img className="logo" src={process.env.PUBLIC_URL + "/logo1.png"} />
             <div className="linkContainer">
+                <div className="linkImageContainer03">
+                    <Link to="/accueil" className="linkthree">Accueil</Link>
+                </div>
+                <hr className="hrThree"></hr>
                 <div className="linkImageContainer01">
-                    <Link to="/" className="linkone linkthree">Profil</Link>
+                    <Link to="/profil" className="linkone">Profil</Link>
                 </div>
                 <hr className="hrOne"></hr>
                 <div className="linkImageContainer02">

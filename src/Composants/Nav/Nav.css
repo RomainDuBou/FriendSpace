@@ -45,8 +45,25 @@
   border-right: none;
 }
 
+.navContainer.homeStyle .linkImageContainer03 {
+  display: flex;
+  background-color: black;
+  margin-left: 50px;
+  margin-top: 40px;
+  border-right: none;
+}
+
 .navContainer.homeStyle .linkone {
   color: #0f0;
+  font-weight: bold;
+}
+
+.navContainer.homeStyle .linkthree {
+  color: #0f0;
+}
+
+.navContainer.homeStyle .linkthree:hover {
+  font-size: 20px;
   font-weight: bold;
 }
 
@@ -76,6 +93,10 @@
   display: none;
 }
 
+.navContainer.homeStyle .hrThree {
+  display: none;
+}
+
 .logo {
   width: auto;
 }
@@ -92,4 +113,140 @@
 
 .navContainer button:hover {
   background-color: #fff;
+}
+
+/********************************* MES POSTS  *********************************/
+
+.navContainer.mespostsStyle .linkImageContainer01 {
+  display: flex;
+  background-color: black;
+  margin-left: 50px;
+  margin-top: 40px;
+  border-right: none;
+}
+
+.navContainer.mespostsStyle .linkImageContainer02 {
+  display: flex;
+  background-color: black;
+  margin-left: 50px;
+  margin-top: 40px;
+  border-right: 5px solid #0f0;
+}
+
+.navContainer.mespostsStyle .linkImageContainer03 {
+  display: flex;
+  background-color: black;
+  margin-left: 50px;
+  margin-top: 40px;
+}
+
+.navContainer.mespostsStyle .linkone {
+  color: #0f0;
+  font-weight: normal;
+}
+
+.navContainer.mespostsStyle .linkone:hover {
+  font-size: 20px;
+}
+
+.navContainer.mespostsStyle .linktwo {
+  color: #00ff00;
+  font-weight: bold;
+}
+
+.navContainer.mespostsStyle .linkthree {
+  color: #0f0;
+  font-weight: normal;
+}
+
+.navContainer.mespostsStyle .linkone:hover {
+  font-size: 20px;
+  font-weight: bold;
+}
+.navContainer.mespostsStyle .linkthree:hover {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.navContainer.mespostsStyle .hrOne {
+  display: none;
+}
+
+.navContainer.mespostsStyle .hrThree {
+  display: none;
+}
+
+.navContainer.mespostsStyle .hrTwo {
+  margin-left: 50px;
+  height: 3px;
+  width: 90px;
+  background: #0f0;
+  border: none;
+}
+
+/* ACCUEIL  */
+
+.navContainer.accueilStyle .linkImageContainer01 {
+  display: flex;
+  background-color: black;
+  margin-left: 50px;
+  margin-top: 40px;
+}
+
+.navContainer.accueilStyle .linkImageContainer02 {
+  display: flex;
+  background-color: black;
+  margin-left: 50px;
+  margin-top: 40px;
+}
+
+.navContainer.accueilStyle .linkImageContainer03 {
+  display: flex;
+  background-color: black;
+  margin-left: 50px;
+  margin-top: 40px;
+  border-right: 5px solid #0f0;
+}
+
+.navContainer.accueilStyle .linkone {
+  color: #0f0;
+}
+
+.navContainer.accueilStyle .linkone:hover {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.navContainer.accueilStyle .linktwo {
+  color: #00ff00;
+}
+
+.navContainer.accueilStyle .linkthree {
+  color: #00ff00;
+}
+
+.navContainer.accueilStyle .linktwo:hover {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.navContainer.accueilStyle .linkthree:hover {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.navContainer.accueilStyle .hrOne {
+  display: none;
+}
+
+.navContainer.accueilStyle .hrTwo {
+  display: none;
+}
+
+.navContainer.accueilStyle .hrThree {
+  margin-left: 50px;
+  height: 3px;
+  width: 90px;
+  background: #0f0;
+  border: none;
 }

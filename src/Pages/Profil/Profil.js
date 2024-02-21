@@ -50,9 +50,10 @@ function Profil() {
                 {message && <div>{message}</div>}
                 {user && (
                     <div>
-                        <p>Nom : {user.lastname}</p>
-                        <p>Prénom : {user.firstname}</p>
-                        <p>Email : {user.email}</p>
+                        <p>Nom : {user.lastname}</p><button>Modifier</button>
+                        <p>Prénom : {user.firstname}</p><button>Modifier</button>
+                        <p>Email : {user.email}</p><button>Modifier</button>
+                        <p>Age : {user.age}</p><button>Modifier</button>
                     </div>
                 )}
 

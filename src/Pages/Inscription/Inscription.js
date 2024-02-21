@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 function Inscription() {
     const [lastname, setLastname] = useState("");
     const [firstname, setFirstname] = useState("");
-    const [age, setAge] = useState(""); // Nouvelle constante pour l'âge
+    const [age, setAge] = useState(0); // Nouvelle constante pour l'âge
     const [phoneNumber, setPhoneNumber] = useState(""); // Nouvelle constante pour le numéro de téléphone
     const [postalCode, setPostalCode] = useState(""); // Nouvelle constante pour le code postal
     const [city, setCity] = useState(""); // Nouvelle constante pour la ville
@@ -27,10 +27,7 @@ function Inscription() {
                 password: password,
                 firstname: firstname,
                 lastname: lastname,
-                age: age, // Inclure l'âge dans la requête
-                phoneNumber: phoneNumber, // Inclure le numéro de téléphone dans la requête
-                postalCode: postalCode, // Inclure le code postal dans la requête
-                city: city // Inclure la ville dans la requête
+                age: Number(age) // Inclure l'âge dans la requête
             })
         };
         const response = await fetch(
@@ -84,6 +81,37 @@ function Inscription() {
                                         required /> <i>Nom</i>
                                 </div>
 
+                                <div className='inputBox'>
+                                    <input type="number"
+                                        onChange={(e) => setAge(e.target.value)}
+                                        value={age}
+                                        min={"0"}
+                                        max={"110"}
+                                        required /> <i>Age</i>
+                                </div>
+
+                                <div className='inputBox'>
+                                    <input type="text"
+                                        onChange={(e) => setPostalCode(e.target.value)}
+                                        value={postalCode}
+                                        pattern='[0-8]*'
+                                        required /> <i>Code postal</i>
+                                </div>
+
+                                <div className='inputBox'>
+                                    <input type="text"
+                                        onChange={(e) => setCity(e.target.value)}
+                                        value={city}
+                                        required /> <i>Ville</i>
+                                </div>
+
+                                <div className='inputBox'>
+                                    <input type="tel"
+                                        onChange={(e) => setPhoneNumber(e.target.value)}
+                                        value={phoneNumber}
+                                        required /> <i>Numéro de téléphone</i>
+                                </div>
+
                                 <div className="inputBox">
                                     <input type="mail"
                                         onChange={(e) => setEmail(e.target.value)}
@@ -103,7 +131,7 @@ function Inscription() {
 
                                 <div className="inputBox">
 
-                                    <input type="submit" value="Se connecter" />
+                                    <input type="submit" value="S'inscrire" />
                                     {message && <div className='messageContainer'>{message}</div>}
 
                                 </div>

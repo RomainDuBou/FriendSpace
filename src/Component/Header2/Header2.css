@@ -1,0 +1,24 @@
+.header2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: -251px;
+  }
+
+  .header2 input {
+    border-radius: 20%;
+    border-left: solid green;
+    border-right: solid green;
+  }
+
+  .header2 {
+    position: relative;
+    height: 50px;
+    width: 100%;
+    background:rgb(168, 255, 144);
+    
+    box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.39);
+    -webkit-box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.39);
+    -moz-box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.39);
+    
+}

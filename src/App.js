@@ -1,19 +1,37 @@
 
-import {createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
-import Mes_Posts from './Pages/Mes_Posts/Mes_Posts';
-import Acceuil from './Pages/Acceuil/Acceuil';
+import Connexion from './Pages/Connexion/Connexion';
+import Inscription from './Pages/Inscription/Inscription';
+import Profil from './Pages/Profil/Profil';
+import MesPosts from './Pages/MesPosts/MesPosts';
+import Accueil from './Pages/Acceuil/Accueil';
+import { createBrowserRouter, RouterProvider }
+    from "react-router-dom";
 
 const router = createBrowserRouter([
-  
+
   {
     path: "/",
-    element: <Acceuil/>
+    element: <Connexion/>,
+  },
+  
+  {
+    path: "/inscription",
+    element: <Inscription />
+  },
+  {
+    path: "/profil",
+    element: <Profil />
   },
 
   {
-    path: "/Mes_Posts",
-    element: <Mes_Posts/>
+    path: "/accueil",
+    element: <Accueil/>
+  },
+
+  {
+    path: "/MesPosts",
+    element: <MesPosts/>
   },
 
 ])

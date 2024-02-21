@@ -1,57 +1,252 @@
 .navContainer {
     position: fixed;
-    height: 100%; 
-    width: 200px; 
-    background: #222;
-    color: white;
-    left: 0;
-    padding: 20px;
-    margin-top: -100px;
-    box-shadow: 10px -2px 11px -6px rgba(0,0,0,0.75);
-    -webkit-box-shadow: 10px -2px 11px -6px rgba(0,0,0,0.75);
-    -moz-box-shadow: 10px -2px 11px -6px rgba(0,0,0,0.75);
-}
-
-.navContainer h1 {
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.navContainer div {
-    display: flex;
-}
-
-.navContainer div a {
-    color: white;
+    width: 250px;
+    height: 100vh;
+    background-color: black;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    z-index: 100;
+  }
+  .navContainer img {
+    margin-top: -106px;
+    width: 153%;
+    margin-left: -50px;
+  }
+  
+  .linkContainer {
+    background-color: black;
+  }
+  
+  .linkContainer img {
+    background-color: black;
+    width: 0px;
+    margin-right: 10px;
+  }
+  
+  .linkContainer a {
+    background-color: black;
+    color: #fff;
+    display: block;
     text-decoration: none;
-    margin-right: 20px;
-}
-
-.navContainer div a:hover {
-    color: #0f0;
-    border-bottom: 2px solid greenyellow
-}
-
-.navContainer h1 {
-    font-size: large;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.navContainer div {
+  }
+  
+  .navContainer.homeStyle .linkImageContainer01 {
     display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    margin: 40px;
-}
-
-.acceuilLink {
-    margin: 20px;
-    
-}
-
-.mespostsLink {
-    margin: 20px;
-}
+    background-color: black;
+    margin-left: 50px;
+    margin-top: 40px;
+    border-right: 5px solid #0f0;
+  }
+  
+  .navContainer.homeStyle .linkImageContainer02 {
+    display: flex;
+    background-color: black;
+    margin-left: 50px;
+    margin-top: 40px;
+    border-right: none;
+  }
+  
+  .navContainer.homeStyle .linkImageContainer03 {
+    display: flex;
+    background-color: black;
+    margin-left: 50px;
+    margin-top: 40px;
+    border-right: none;
+  }
+  
+  .navContainer.homeStyle .linkone {
+    color: #0f0;
+    font-weight: bold;
+  }
+  
+  .navContainer.homeStyle .linkthree {
+    color: #0f0;
+  }
+  
+  .navContainer.homeStyle .linkthree:hover {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .navContainer.homeStyle .linkone:hover {
+    font-size: 20px;
+  }
+  
+  .navContainer.homeStyle .linktwo {
+    color: #00ff00;
+    font-weight: normal;
+  }
+  
+  .navContainer.homeStyle .linktwo:hover {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .navContainer.homeStyle .hrOne {
+    margin-left: 50px;
+    height: 3px;
+    width: 90px;
+    background: #0f0;
+    border: none;
+  }
+  
+  .navContainer.homeStyle .hrTwo {
+    display: none;
+  }
+  
+  .navContainer.homeStyle .hrThree {
+    display: none;
+  }
+  
+  .logo {
+    width: auto;
+  }
+  
+  .navContainer button {
+    position: absolute;
+    bottom: 4%;
+    left: 25%;
+    background-color: #00ff00;
+    padding: 5px;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  
+  .navContainer button:hover {
+    background-color: #fff;
+  }
+  
+  /********************************* MES POSTS  *********************************/
+  
+  .navContainer.mespostsStyle .linkImageContainer01 {
+    display: flex;
+    background-color: black;
+    margin-left: 50px;
+    margin-top: 40px;
+    border-right: none;
+  }
+  
+  .navContainer.mespostsStyle .linkImageContainer02 {
+    display: flex;
+    background-color: black;
+    margin-left: 50px;
+    margin-top: 40px;
+    border-right: 5px solid #0f0;
+  }
+  
+  .navContainer.mespostsStyle .linkImageContainer03 {
+    display: flex;
+    background-color: black;
+    margin-left: 50px;
+    margin-top: 40px;
+  }
+  
+  .navContainer.mespostsStyle .linkone {
+    color: #0f0;
+    font-weight: normal;
+  }
+  
+  .navContainer.mespostsStyle .linkone:hover {
+    font-size: 20px;
+  }
+  
+  .navContainer.mespostsStyle .linktwo {
+    color: #00ff00;
+    font-weight: bold;
+  }
+  
+  .navContainer.mespostsStyle .linkthree {
+    color: #0f0;
+    font-weight: normal;
+  }
+  
+  .navContainer.mespostsStyle .linkone:hover {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .navContainer.mespostsStyle .linkthree:hover {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .navContainer.mespostsStyle .hrOne {
+    display: none;
+  }
+  
+  .navContainer.mespostsStyle .hrThree {
+    display: none;
+  }
+  
+  .navContainer.mespostsStyle .hrTwo {
+    margin-left: 50px;
+    height: 3px;
+    width: 90px;
+    background: #0f0;
+    border: none;
+  }
+  
+  /* ACCUEIL  */
+  
+  .navContainer.accueilStyle .linkImageContainer01 {
+    display: flex;
+    background-color: black;
+    margin-left: 50px;
+    margin-top: 40px;
+  }
+  
+  .navContainer.accueilStyle .linkImageContainer02 {
+    display: flex;
+    background-color: black;
+    margin-left: 50px;
+    margin-top: 40px;
+  }
+  
+  .navContainer.accueilStyle .linkImageContainer03 {
+    display: flex;
+    background-color: black;
+    margin-left: 50px;
+    margin-top: 40px;
+    border-right: 5px solid #0f0;
+  }
+  
+  .navContainer.accueilStyle .linkone {
+    color: #0f0;
+  }
+  
+  .navContainer.accueilStyle .linkone:hover {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .navContainer.accueilStyle .linktwo {
+    color: #00ff00;
+  }
+  
+  .navContainer.accueilStyle .linkthree {
+    color: #00ff00;
+  }
+  
+  .navContainer.accueilStyle .linktwo:hover {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .navContainer.accueilStyle .linkthree:hover {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .navContainer.accueilStyle .hrOne {
+    display: none;
+  }
+  
+  .navContainer.accueilStyle .hrTwo {
+    display: none;
+  }
+  
+  .navContainer.accueilStyle .hrThree {
+    margin-left: 50px;
+    height: 3px;
+    width: 90px;
+    background: #0f0;
+    border: none;
+  }

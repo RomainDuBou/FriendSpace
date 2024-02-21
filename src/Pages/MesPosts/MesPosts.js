@@ -2,13 +2,21 @@ import "./MesPosts.css";
 import Header from '../../Composants/Header/Header';
 import Onlinefriends from '../../Composants/Onlinefriends/Onlinefriends';
 import Nav from '../../Composants/Nav/Nav';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function MesPosts() {
     const [content, setContent] = useState("");
     const [titlePost, setTitlePost] = useState("");
-    const [postedMessages, setPostedMessages] = useState([]); // État pour stocker les messages postés
+    const [postedMessages, setPostedMessages] = useState(() => {
+        const savedMessages = localStorage.getItem("postedMessages");
+        return savedMessages ? JSON.parse(savedMessages) : [];
+    });
+
     let token = localStorage.getItem("token");
+
+    useEffect(() => {
+        localStorage.setItem("postedMessages", JSON.stringify(postedMessages));
+    }, [postedMessages]);
 
     const poster = async (e) => {
         e.preventDefault();
@@ -31,10 +39,10 @@ function MesPosts() {
         );
 
         if (response.ok) {
-            const postedMessage = { title: titlePost, content: content }; // Créer un objet avec le titre et le contenu du message
-            setPostedMessages([...postedMessages, postedMessage]); // Ajouter le message posté à la liste des messages postés
-            setTitlePost(""); // Réinitialiser le champ du titre
-            setContent(""); // Réinitialiser le champ du contenu
+            const postedMessage = { title: titlePost, content: content };
+            setPostedMessages([...postedMessages, postedMessage]);
+            setTitlePost("");
+            setContent("");
         } else {
             console.error("Failed to post message");
         }

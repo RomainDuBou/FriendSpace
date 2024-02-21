@@ -1,0 +1,19 @@
+.mespostsContainer {
+  position: absolute;
+  left: 30%;
+  top: 50%;
+}
+
+.mespostsContainer textarea {
+  margin-top: 12px;
+  width: 300px;
+  height: 100px;
+}
+
+.mespostsContainer input {
+  margin-top: 20px;
+}
+
+.postedMessages {
+  margin: 20px;
+}

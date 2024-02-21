@@ -45,7 +45,7 @@ function Onlinefriends () {
         <img src="https://m.media-amazon.com/images/M/MV5BMTkxMzk4MjQ4MF5BMl5BanBnXkFtZTcwMzExODQxOA@@._V1_.jpg"/>
         </div>
         <div className="friends">
-        <span>🟢</span>
+        <span>🔴</span>
         <p>Thomas Shelby</p>
         <img src="https://m.media-amazon.com/images/I/61F0-bqGMvL._AC_UF1000,1000_QL80_.jpg"/>
         </div>

@@ -54,8 +54,8 @@ function MesPosts() {
             <Onlinefriends />
             <Nav />
 
-            <div className="mespostsContainer">
-                <h1 className="title01">Envie de poster?</h1>
+            <div className="postingContainer" >
+                <h1 className="title01">Quoi de neuf ?</h1>
 
                 <input
                     id="titlePost"
@@ -64,27 +64,45 @@ function MesPosts() {
                     onChange={(e) => setTitlePost(e.target.value)}
                     placeholder="Titre du post"
                 />
-                <br />
-                <textarea
+                <input
                     id="contenupost"
+                    className="contentInput"
                     value={content}
                     onChange={(e) => setContent(e.target.value)}
                     placeholder="Contenu du post"
                 />
-                <br />
+        
 
                 <button onClick={poster}>Publier</button>
-                <h1 className="title02">Mes Posts</h1>
+                <ul class="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                </div>
+
+                <div className="mespostsContainer">
+
+                <h1 className="title02"><u>Mes Posts : </u></h1>
 
                 <div className="postedMessages">
                     {postedMessages.map((message, index) => (
                         <div key={index}>
-                            <h3>{message.title}</h3>
+                            <h2>{message.title}</h2>
                             <p>{message.content}</p>
                         </div>
                     ))}
                 </div>
             </div>
+
+     
         </div>
     );
 }

@@ -74,6 +74,22 @@ function MesPosts() {
         
 
                 <button onClick={poster}>Publier</button>
+        
+                </div>
+
+                <div className="mespostsContainer">
+
+                <h1 className="title02"><u>Mes Posts : </u></h1>
+
+                <div className="postedMessages">
+                    {postedMessages.map((message, index) => (
+                        <div className="singleMessage" key={index}>
+                            <h2>{message.title}</h2>
+                            <p>{message.content}</p>
+                        </div>
+                    ))}
+                </div>
+
                 <ul class="circles">
                     <li></li>
                     <li></li>
@@ -86,20 +102,6 @@ function MesPosts() {
                     <li></li>
                     <li></li>
                 </ul>
-                </div>
-
-                <div className="mespostsContainer">
-
-                <h1 className="title02"><u>Mes Posts : </u></h1>
-
-                <div className="postedMessages">
-                    {postedMessages.map((message, index) => (
-                        <div key={index}>
-                            <h2>{message.title}</h2>
-                            <p>{message.content}</p>
-                        </div>
-                    ))}
-                </div>
             </div>
 
      

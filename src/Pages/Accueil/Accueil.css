@@ -1,0 +1,5 @@
+.postsContainer {
+    position: absolute;
+    left: 50%;
+    overflow-y: scroll;
+}

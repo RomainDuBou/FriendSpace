@@ -1,135 +1,75 @@
-import './Accueil.css'
+import React, { useState, useEffect } from 'react';
+import './Accueil.css';
 import Header from '../../Component/Header/Header';
 import Onlinefriends from '../../Component/Onlinefriends/Onlinefriends';
 import Nav from '../../Component/Nav/Nav';
-import React, { useState, useEffect } from 'react';
-import Header2 from '../../Component/Header2/Header2';
 
 function Accueil() {
+    const [posts, setPosts] = useState([]);
 
-  const [posts, setPosts] = useState([]);
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
+    useEffect(() => {
+        const fetchPosts = async () => {
+            try {
+                const response = await fetch('https://social-network-api.osc-fr1.scalingo.io/friendspace99/posts');
+                if (response.ok) {
+                    const data = await response.json();
+                    setPosts(data.posts);
+                } else {
+                    throw new Error('Echec');
+                }
+            } catch (error) {
+                console.error('Erreur pour fetch post', error);
+            }
+        };
 
-  useEffect(() => {
-    
-    fetch("https://social-network-api.osc-fr1.scalingo.io/friendspace99/login")
-      .then(response => response.json())
-      .then(data => setPosts(data))
-      .catch(error => console.error('Error:', error));
-  }, []);
+        fetchPosts();
+    }, []); 
 
-  const postComment = (index) => {
-    const commentInput = document.getElementById(`commentInput-${index}`);
-    const comment = commentInput.value;
-    if (comment.trim() !== '') {
-      
-      fetch(`http://exemple.com/api/posts/${posts[index].id}/comments`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ comment: comment })
-      })
-      .then(response => response.json())
-      .then(data => {
-        const updatedPosts = [...posts];
-        updatedPosts[index].comments.push(data.comment);
-        setPosts(updatedPosts);
-        commentInput.value = '';
-      })
-      .catch(error => console.error('Error:', error));
-    }
-  };
-   
-  const renderPosts = () => {
+    const handleLike = async (postId) => {
+      console.log(postId);
+        try {
+            const options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer token'
+                },
+                body: JSON.stringify({
+                    postId: postId
+                })
+            };
+            const response = await fetch('https://social-network-api.osc-fr1.scalingo.io/friendspace99/like', options);
+            if (response.ok) {
+                // Mise à jour de l'état pour refléter le like
+                setPosts(posts.map(post => post.id === postId ? {...post, likes: post.likes + 1} : post));
+            } else {
+                throw new Error('Echec de la requête de like');
+            }
+        } catch (error) {
+            console.error('Erreur pour liker post', error);
+        }
+    };
+
     return (
-      <div>
-        {posts.map((post, index) => (
-          <div key={index}>
-            <h3>{post.title}</h3>
-            <p>{post.content}</p>
-            <button onClick={() => like(index)}>Like ({post.likes})</button>
-            <button>Comment</button>
-            <div>
-              {post.comments.map((comment, commentIndex) => (
-                <p key={commentIndex}>{comment}</p>
-              ))}
-              <textarea id={`commentInput-${index}`} rows="2" cols="30"></textarea>
-              <button onClick={() => postComment(index)}>Post Comment</button>
+        <div>
+            <Header />
+            <Onlinefriends />
+            <Nav />
+            <div className="accueilContainer">
+                <h1>Fil D'actualité:</h1>
+                <div className="allMessages">
+                    {posts.map((post, index) => (
+                        <div className='singleMessage' key={index}>
+                            <h2>{post.title}</h2>
+                            <p>{post.content}</p>
+                            <button onClick={() => handleLike(post.id)}>Like</button>
+                            <p>Likes: {post.likes}</p>
+                        </div>
+                    ))}
+                </div>
             </div>
-          </div>
-        ))}
-      </div>
-    );
-  };
-
-  const postMessage = () => {
-    if (title.trim() !== '' && content.trim() !== '') {
-    
-      fetch('http://exemple.com/api/posts', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ title: title, content: content })
-      })
-      .then(response => response.json())
-      .then(data => {
-        setPosts([...posts, data]);
-        setTitle('');
-        setContent('');
-      })
-      .catch(error => console.error('Error:', error));
-    }
-  };
-
-  
-
-  const like = (index) => {
-    fetch(`http://exemple.com/api/posts/${posts[index].id}/like`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-    .then(response => response.json())
-    .then(data => {
-      const updatedPosts = [...posts];
-      updatedPosts[index].likes = data.likes;
-      setPosts(updatedPosts);
-    })
-    .catch(error => console.error('Error:', error));
-  };
-  
-    return (
-
-        <div className='accueilContainer'>
-
-            < Header />
-
-            
-
-            < Onlinefriends />
-
-            < Nav />
-
-            {/* <div className='infoContainer'>
-
-              <h1>Simple Social Media</h1>
-                {renderPosts()}
-              <h2>Post a message</h2>
-              <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Title"/><br/>
-              <textarea value={content} onChange={(e) => setContent(e.target.value)} rows="4" cols="50" placeholder="Content"></textarea><br/>
-              <button onClick={postMessage}>Post</button>
-                
-            </div> */}
-
-
         </div>
-
     );
 }
-
 
 export default Accueil;

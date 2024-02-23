@@ -11,14 +11,26 @@ function MesPosts() {
         const savedMessages = localStorage.getItem("postedMessages");
         return savedMessages ? JSON.parse(savedMessages) : [];
     });
+    const [likes, setLikes] = useState(() => {
+        const savedLikes = JSON.parse(localStorage.getItem("likes")) || {};
+        return savedLikes;
+    });
 
-    const handleLike = (index) => {
-        const updatedMessages = postedMessages.map((message, i) => {
-            if (i === index) {
-                return { ...message, likes: (message.likes || 0) + 1 };
-            }
-            return message;
-        });
+    const handleLike = async (index) => {
+        // Vérifier si l'utilisateur a déjà aimé ce message
+        if (likes[index]) {
+            alert("Vous avez déjà aimé ce message !");
+            return;
+        }
+
+        // Mettre à jour les likes dans le stockage local et dans l'état local
+        const newLikes = { ...likes, [index]: true };
+        setLikes(newLikes);
+        localStorage.setItem("likes", JSON.stringify(newLikes));
+
+        // Mettre à jour les likes du message
+        const updatedMessages = [...postedMessages];
+        updatedMessages[index].likes = (updatedMessages[index].likes || 0) + 1;
         setPostedMessages(updatedMessages);
     };
 
@@ -65,6 +77,10 @@ function MesPosts() {
         localStorage.setItem("postedMessages", JSON.stringify(postedMessages));
     }, [postedMessages]);
 
+    useEffect(() => {
+        localStorage.setItem("likes", JSON.stringify(likes));
+    }, [likes]);
+
     return (
         <div>
             <Header />
@@ -89,7 +105,7 @@ function MesPosts() {
                     placeholder="Contenu du post"
                 />
                 <div className="buttons-container">
-                    <button className="button-arounder" onClick={poster} >Publier</button>
+                    <button className="button-arounder" onClick={poster}>Publier</button>
                 </div>
             </div>
 
@@ -102,9 +118,10 @@ function MesPosts() {
                             <p>Atef Gaieb</p>
                             <h2>{message.title}</h2>
                             <p>{message.content}</p>
-                            <button onClick={() => handleLike(index)}>Like</button>
+                            <button onClick={() => handleLike(index)} disabled={likes[index]}>Like</button>
+                            <p>Likes: {message.likes || 0}</p>
                             <input type="text" placeholder="Ajouter un commentaire" />
-                            <button onClick={() => handleComment(index, )}>Commenter</button>
+                            <button onClick={() => handleComment(index)}>Commenter</button>
                             {message.comments && message.comments.map((comment, idx) => (
                                 <p key={idx}>{comment}</p>
                             ))}
@@ -115,6 +132,5 @@ function MesPosts() {
         </div>
     );
 }
-
 
 export default MesPosts;

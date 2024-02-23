@@ -1,33 +1,36 @@
-.tabContainer {
-    margin-left: 270px;
-      
+.postsContainer {
+  position: absolute;
+  left: 50%;
+  overflow-y: scroll;
 }
 
-input[type="text"] {
-  padding: 10px;
-  border: none;
-  border-bottom: solid black;
-  border-radius: 5px;
-  font-size: 16px;
-  margin-right: 10px;
+.accueilContainer {
+  width: 100%;
+  z-index: -20;
+  background-color: #22222213;
+  position: absolute;
+  left: 17%;
+  top: 11%;
 }
 
-  .infoContainer {
-    z-index: -99;
-    width: 60%;
-    background-color: #fff;
-    height: 80vh;
-    position: absolute;
-    left: 20%;
-    top: 25%;
-    z-index: 0;
-    border-radius: 20px;
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+.accueilContainer h1 {
+  font-size: 40px;
+  padding: 20px;
+  padding-left: 30px;
 }
 
-
-  .acceuil {
-    width: 100%;
+.allMessages {
+    margin: 20px;
+    overflow-x: scroll;
     height: 100vh;
-    background-color:gray;
-  }
+}
+
+.singleMessage {
+  margin: 20px;
+  background-color: gray;
+  border-top-left-radius: 20%;
+  border-bottom-left-radius: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding-bottom: 20px;
+  border-bottom: solid black;
+}

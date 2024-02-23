@@ -7,6 +7,7 @@ import Nav from '../../Composants/Nav/Nav';
 function Accueil() {
     const [posts, setPosts] = useState([]);
 
+
     useEffect(() => {
         async function fetchPosts() {
             try {

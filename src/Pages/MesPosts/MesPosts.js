@@ -18,6 +18,26 @@ function MesPosts() {
         localStorage.setItem("postedMessages", JSON.stringify(postedMessages));
     }, [postedMessages]);
 
+
+    const handleLike = (index) => {
+        const updatedMessages = postedMessages.map((message, i) => {
+            if (i === index) {
+                return { ...message, likes: (message.likes || 0) + 1 };
+            }
+            return message;
+        });
+        setPostedMessages(updatedMessages);
+    };
+
+    const handleComment = (index, comment) => {
+        const updatedMessages = [...postedMessages];
+        if (!updatedMessages[index].comments) {
+            updatedMessages[index].comments = [];
+        }
+        updatedMessages[index].comments.push(comment);
+        setPostedMessages(updatedMessages);
+    };
+
     const poster = async (e) => {
         e.preventDefault();
 
@@ -91,6 +111,12 @@ function MesPosts() {
                             <img src="https://images.ctfassets.net/h6goo9gw1hh6/2sNZtFAWOdP1lmQ33VwRN3/24e953b920a9cd0ff2e1d587742a2472/1-intro-photo-final.jpg?w=1200&h=992&fl=progressive&q=70&fm=jpg"/>
                             <h2>{message.title}</h2>
                             <p>{message.content}</p>
+                            <button onClick={() => handleLike(index)}>Like</button>
+                            <input type="text" placeholder="Ajouter un commentaire" />
+                            <button onClick={() => handleComment(index, )}>Commenter</button>
+                            {message.comments && message.comments.map((comment, idx) => (
+                                <p key={idx}>{comment}</p>
+                            ))}
                         </div>
                     ))}
                 </div>

@@ -12,7 +12,7 @@ function Accueil() {
   const [content, setContent] = useState('');
 
   useEffect(() => {
-    // Récupération des messages depuis l'API au chargement de la page
+    
     fetch("https://social-network-api.osc-fr1.scalingo.io/friendspace99/login")
       .then(response => response.json())
       .then(data => setPosts(data))
@@ -23,7 +23,7 @@ function Accueil() {
     const commentInput = document.getElementById(`commentInput-${index}`);
     const comment = commentInput.value;
     if (comment.trim() !== '') {
-      // Envoi du commentaire à l'API
+      
       fetch(`http://exemple.com/api/posts/${posts[index].id}/comments`, {
         method: 'POST',
         headers: {
@@ -66,7 +66,7 @@ function Accueil() {
 
   const postMessage = () => {
     if (title.trim() !== '' && content.trim() !== '') {
-      // Envoi du message à l'API
+    
       fetch('http://exemple.com/api/posts', {
         method: 'POST',
         headers: {
@@ -87,7 +87,6 @@ function Accueil() {
   
 
   const like = (index) => {
-    // Envoi du like à l'API
     fetch(`http://exemple.com/api/posts/${posts[index].id}/like`, {
       method: 'POST',
       headers: {
@@ -115,7 +114,7 @@ function Accueil() {
 
             < Nav />
 
-            <div className='infoContainer'>
+            {/* <div className='infoContainer'>
 
               <h1>Simple Social Media</h1>
                 {renderPosts()}
@@ -124,7 +123,7 @@ function Accueil() {
               <textarea value={content} onChange={(e) => setContent(e.target.value)} rows="4" cols="50" placeholder="Content"></textarea><br/>
               <button onClick={postMessage}>Post</button>
                 
-            </div>
+            </div> */}
 
 
         </div>

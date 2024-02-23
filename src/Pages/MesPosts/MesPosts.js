@@ -88,7 +88,9 @@ function MesPosts() {
                     onChange={(e) => setContent(e.target.value)}
                     placeholder="Contenu du post"
                 />
-                <button onClick={poster}>Publier</button>
+                <div className="buttons-container">
+                    <button className="button-arounder" onClick={poster} >Publier</button>
+                </div>
             </div>
 
             <div className="mespostsContainer">

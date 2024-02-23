@@ -1,17 +1,14 @@
 import './Inscription.css';
-import { useState } from "react";
 import { Link } from "react-router-dom";
 
-
 function Inscription() {
-    const [lastname, setLastname] = useState("");
-    const [firstname, setFirstname] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [message, setMessage] = useState("");
-
     const register = async (e) => {
         e.preventDefault();
+
+        const firstname = e.target.elements.firstname.value;
+        const lastname = e.target.elements.lastname.value;
+        const email = e.target.elements.email.value;
+        const password = e.target.elements.password.value;
 
         const options = {
             method: "POST",
@@ -25,91 +22,65 @@ function Inscription() {
                 lastname: lastname
             })
         };
+
         const response = await fetch(
             "https://social-network-api.osc-fr1.scalingo.io/friendspace99/register",
             options
         );
 
-
         if (response.status === 401) {
-            setMessage("Email ou mot de passe incorret");
+            alert("Email ou mot de passe incorrect");
             return;
         }
 
         if (response.status !== 200) {
-            setMessage("Une erreur s'est produite");
+            alert("Une erreur s'est produite");
             return;
         }
 
-
-        setMessage("Vous êtes bien inscrit, veuillez maintenant vous connecter avec vos informations");
+        alert("Vous êtes bien inscrit, veuillez maintenant vous connecter avec vos informations");
     };
 
-    return (
+    
+    const spans = [];
+    for (let i = 0; i < 150; i++) {
+        spans.push(<span key={i}/>);
+    }
 
+    return (
         <div className='inscriptionContainer'>
             <section>
-                <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-                <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-
+                {spans}
                 <div className="signin">
-
                     <div className="content">
-
                         <h2>S'inscrire</h2>
-
                         <div className="form">
-
                             <form onSubmit={register}>
-
                                 <div className='inputBox'>
-                                    <input type="text"
-                                        onChange={(e) => setFirstname(e.target.value)}
-                                        value={firstname}
-                                        required /> <i>Prénom</i>
+                                    <input type="text" name="firstname" required /> <i>Prénom</i>
                                 </div>
-
                                 <div className='inputBox'>
-                                    <input type="text"
-                                        onChange={(e) => setLastname(e.target.value)}
-                                        value={lastname}
-                                        required /> <i>Nom</i>
+                                    <input type="text" name="lastname" required /> <i>Nom</i>
                                 </div>
-
                                 <div className="inputBox">
-                                    <input type="mail"
-                                        onChange={(e) => setEmail(e.target.value)}
-                                        value={email}
-                                        required /> <i>Email</i>
+                                    <input type="email" name="email" required /> <i>Email</i>
                                 </div>
-
                                 <div className="inputBox">
-                                    <input type="password"
-                                        onChange={(e) => setPassword(e.target.value)}
-                                        required /> <i>Password</i>
-
+                                    <input type="password" name="password" required /> <i>Password</i>
                                 </div>
-
-                                <div className="links"><Link to="/">Déjà un compte ? Se connecter</Link>
+                                <div className="links">
+                                    <Link to="/">Déjà un compte ? Se connecter</Link>
                                 </div>
-
                                 <div className="inputBox">
-
-                                    <input type="submit" value="Se connecter" />
-                                    {message && <div className='messageContainer'>{message}</div>}
-
+                                    <input type="submit" value="S'inscrire" />
                                 </div>
-
                             </form>
                         </div>
                     </div>
                 </div>
             </section>
         </div>
-
     );
-
-
 }
 
 export default Inscription;

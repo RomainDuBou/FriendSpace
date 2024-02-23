@@ -44,7 +44,7 @@ function MesPosts() {
             setTitlePost("");
             setContent("");
         } else {
-            console.error("Failed to post message");
+            console.error("Echec pour post le message");
         }
     }
 

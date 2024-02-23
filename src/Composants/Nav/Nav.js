@@ -6,12 +6,9 @@ function Nav() {
     const navigate = useNavigate();
 
     const handleLogout = () => {
-        // Supprimer le token d'authentification
-        // Vous devriez avoir une fonction pour gérer cela dans votre application
-        // Par exemple, vous pouvez utiliser localStorage ou sessionStorage
+     
         localStorage.removeItem("token");
 
-        // Rediriger vers la page de connexion
         navigate("/");
     };
 

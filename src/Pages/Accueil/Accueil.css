@@ -1,5 +1,26 @@
 .postsContainer {
-    position: absolute;
-    left: 50%;
-    overflow-y: scroll;
+  position: absolute;
+  left: 50%;
+  overflow-y: scroll;
+}
+
+.accueilContainer {
+  width: 100%;
+  z-index: -20;
+  background-color: #22222213;
+  position: absolute;
+  left: 17%;
+  top: 11%;
+}
+
+.accueilContainer h1 {
+  font-size: 40px;
+  padding: 20px;
+  padding-left: 30px;
+}
+
+.allMessages {
+    margin: 20px;
+    overflow-x: scroll;
+    height: 100vh;
 }

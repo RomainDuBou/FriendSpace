@@ -15,32 +15,32 @@ function Accueil() {
                     const data = await response.json();
                     setPosts(data.posts);
                 } else {
-                    console.error('Failed to fetch posts');
+                    console.error('Echec');
                 }
             } catch (error) {
-                console.error('Error fetching posts:', error);
+                console.error('Erreur pour fetch post', error);
             }
         }
 
         fetchPosts();
-    }, []); // Empty dependency array ensures this effect runs only once on component mount
+    }, []); 
 
     return (
-        <div className='accueilContainer'>
+        <div>
             <Header />
             <Onlinefriends />
             <Nav />
-            {/* Render posts here */}
-                <h1>Latest Posts</h1>
-                <div className="mespostsContainer">
-                <ul>
+                <div className="accueilContainer">
+                <h1><u>Derniers posts : </u></h1>
+                <div className="allMessages">
+
                     {posts.map((post, index) => (
                         <div className='singleMessage' key={index}>
                             <h2>{post.title}</h2>
                             <p>{post.content}</p>
                         </div>
                     ))}
-                </ul>
+                </div>
             </div>
         </div>
     );

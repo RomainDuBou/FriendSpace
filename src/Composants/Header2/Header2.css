@@ -1,0 +1,19 @@
+.header2 {
+    position: fixed;
+    top: 12%;
+    z-index: 98;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00ff00;
+    width: 1290px;
+    height: 60px;
+    left: 230px;
+
+  }
+
+  .header2 input {
+    border-radius: 20%;
+    border-left: solid green;
+    border-right: solid green;
+  }

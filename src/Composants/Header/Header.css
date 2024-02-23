@@ -1,0 +1,24 @@
+.header {
+  position: fixed;
+  height: 100px;
+  width: 1290px;
+  background: #fff;
+  left: 230px;
+  border-bottom: 2px solid black;
+  animation: none;
+  z-index: 99;
+  
+}
+
+.header img {
+  width: 80px;
+  height: auto;
+  border-radius: 50%;
+}
+
+.profilHeaderContainer {
+    display: flex;
+    justify-content: end;
+    margin-right: 10%;
+    margin-top: 15px;
+}

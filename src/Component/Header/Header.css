@@ -4,36 +4,29 @@
     width: 1290px;
     background: #fff;
     left: 230px;
-    border-bottom: solid black;
-    /* box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.39);
-    -webkit-box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.39);
-    -moz-box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.39); */
+    border-bottom: 2px solid black;
     animation: none;
     z-index: 99;
     
   }
 
-.header::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    right: 30px;
-    transform: translateY(-50%);
-    width:50px;
-    height: 50px;
-    background-color: rgb(212, 129, 129);
-    border-radius: 50%;
-}
+
 
 .header img {
-    width: 80px;
-    height: auto;
-    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    border-radius: 70%;
+    
   }
   
   .profilHeaderContainer {
       display: flex;
+      align-items: center;
       justify-content: end;
-      margin-right: 10%;
+      margin-right: 1%;
       margin-top: 15px;
+  }
+
+  .profilHeaderContainer p {
+    margin: 20px;
   }

@@ -109,7 +109,7 @@ function Accueil() {
 
             < Header />
 
-            < Header2 />
+            
 
             < Onlinefriends />
 

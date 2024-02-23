@@ -31,8 +31,8 @@ function Accueil() {
             <Onlinefriends />
             <Nav />
             {/* Render posts here */}
-            <div className="mespostsContainer">
                 <h1>Latest Posts</h1>
+                <div className="mespostsContainer">
                 <ul>
                     {posts.map((post, index) => (
                         <div className='singleMessage' key={index}>

@@ -76,14 +76,19 @@ function MesPosts() {
                 <button onClick={poster}>Publier</button>
         
                 </div>
+           
 
                 <div className="mespostsContainer">
 
+
                 <h1 className="title02"><u>Mes Posts : </u></h1>
+
+
 
                 <div className="postedMessages">
                     {postedMessages.map((message, index) => (
                         <div className="singleMessage" key={index}>
+                            <img src="https://images.ctfassets.net/h6goo9gw1hh6/2sNZtFAWOdP1lmQ33VwRN3/24e953b920a9cd0ff2e1d587742a2472/1-intro-photo-final.jpg?w=1200&h=992&fl=progressive&q=70&fm=jpg"/>
                             <h2>{message.title}</h2>
                             <p>{message.content}</p>
                         </div>

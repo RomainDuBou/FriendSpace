@@ -7,39 +7,19 @@ import { useState, useEffect } from "react";
 function MesPosts() {
     const [content, setContent] = useState("");
     const [titlePost, setTitlePost] = useState("");
-    const [postedMessages, setPostedMessages] = useState(() => {
-        const savedMessages = localStorage.getItem("postedMessages");
-        return savedMessages ? JSON.parse(savedMessages) : [];
-    });
-
-    let token = localStorage.getItem("token");
+    const [postedMessages, setPostedMessages] = useState([]);
 
     useEffect(() => {
-        localStorage.setItem("postedMessages", JSON.stringify(postedMessages));
-    }, [postedMessages]);
-
-
-    const handleLike = (index) => {
-        const updatedMessages = postedMessages.map((message, i) => {
-            if (i === index) {
-                return { ...message, likes: (message.likes || 0) + 1 };
-            }
-            return message;
-        });
-        setPostedMessages(updatedMessages);
-    };
-
-    const handleComment = (index, comment) => {
-        const updatedMessages = [...postedMessages];
-        if (!updatedMessages[index].comments) {
-            updatedMessages[index].comments = [];
+        const token = sessionStorage.getItem("token");
+        if (!token) {
+            window.location.href = "/"; // Rediriger vers la page d'accueil si le token est absent
         }
-        updatedMessages[index].comments.push(comment);
-        setPostedMessages(updatedMessages);
-    };
+    }, []);
 
     const poster = async (e) => {
         e.preventDefault();
+
+        const token = sessionStorage.getItem("token");
 
         const options = {
             method: "POST",
@@ -63,8 +43,9 @@ function MesPosts() {
             setPostedMessages([...postedMessages, postedMessage]);
             setTitlePost("");
             setContent("");
+            // localStorage.setItem("postedMessages", JSON.stringify([...postedMessages, postedMessage]));
         } else {
-            console.error("Echec pour post le message");
+            console.error("Echec pour poster le message");
         }
     }
 
@@ -91,51 +72,28 @@ function MesPosts() {
                     onChange={(e) => setContent(e.target.value)}
                     placeholder="Contenu du post"
                 />
-        
 
                 <button onClick={poster}>Publier</button>
-        
-                </div>
-           
 
-                <div className="mespostsContainer">
+            </div>
 
-
-                <h1 className="title02"><u>Mes Posts : </u></h1>
-
-
+            <div className="mespostsContainer">
+                <h1 className="title02">Mes Posts :</h1>
 
                 <div className="postedMessages">
                     {postedMessages.map((message, index) => (
                         <div className="singleMessage" key={index}>
-                            <img src="https://images.ctfassets.net/h6goo9gw1hh6/2sNZtFAWOdP1lmQ33VwRN3/24e953b920a9cd0ff2e1d587742a2472/1-intro-photo-final.jpg?w=1200&h=992&fl=progressive&q=70&fm=jpg"/>
+                            <img src="https://images.ctfassets.net/h6goo9gw1hh6/2sNZtFAWOdP1lmQ33VwRN3/24e953b920a9cd0ff2e1d587742a2472/1-intro-photo-final.jpg" alt="avatar" />
                             <h2>{message.title}</h2>
                             <p>{message.content}</p>
-                            <button onClick={() => handleLike(index)}>Like</button>
-                            <input type="text" placeholder="Ajouter un commentaire" />
-                            <button onClick={() => handleComment(index, )}>Commenter</button>
-                            {message.comments && message.comments.map((comment, idx) => (
-                                <p key={idx}>{comment}</p>
-                            ))}
                         </div>
                     ))}
                 </div>
 
-                <ul class="circles">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
+                <ul className="circles">
+                    {[...Array(10)].map((_, index) => <li key={index} />)}
                 </ul>
             </div>
-
-     
         </div>
     );
 }

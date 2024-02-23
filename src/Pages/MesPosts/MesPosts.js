@@ -16,13 +16,6 @@ function MesPosts() {
         }
     }, []);
 
-    useEffect(() => {
-        const savedMessages = sessionStorage.getItem("postedMessages");
-        if (savedMessages) {
-            setPostedMessages(JSON.parse(savedMessages));
-        }
-    }, []);
-
     const poster = async (e) => {
         e.preventDefault();
 

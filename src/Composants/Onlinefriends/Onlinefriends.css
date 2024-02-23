@@ -10,7 +10,7 @@
 }
 
 .OnlinefriendsContainer img {
-  width: 30px;
+  width: 40px;
   height: auto;
   border-radius: 50%;
   position: relative;
@@ -33,7 +33,7 @@
 
 .friends {
   display: flex;
-  margin: 20px;
+  margin: 40px;
 }
 
 .friends:hover {

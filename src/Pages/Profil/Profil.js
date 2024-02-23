@@ -61,7 +61,7 @@ function Profil() {
     };
 
     const handleSubmit = async () => {
-        const token = localStorage.getItem("token");
+        const token = sessionStorage.getItem("token");
 
         if (!token) {
             setMessage("Token non trouvé");
@@ -148,17 +148,10 @@ function Profil() {
                     </div>
                 )}
 
-                <ul class="circles">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
+                <ul className="circles">
+                    {[...Array(10)].map((_, index) => (
+                        <li key={index}></li>
+                    ))}
                 </ul>
             </div>
         </div>

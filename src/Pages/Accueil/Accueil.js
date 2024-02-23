@@ -23,7 +23,7 @@ function Accueil() {
         };
 
         fetchPosts();
-    }, []); 
+    }, []);
 
     return (
         <div>
@@ -31,7 +31,7 @@ function Accueil() {
             <Onlinefriends />
             <Nav />
             <div className="accueilContainer">
-                <h1>Derniers posts :</h1>
+                <h1>Fil d'actualité :</h1>
                 <div className="allMessages">
                     {posts.map((post, index) => (
                         <div className='singleMessage' key={index}>

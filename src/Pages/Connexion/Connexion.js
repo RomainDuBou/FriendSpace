@@ -1,17 +1,17 @@
 import './Connexion.css';
-import { useState } from "react";
-import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 function Connexion() {
     const navigate = useNavigate();
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
     const [message, setMessage] = useState("");
 
     const login = async (e) => {
         e.preventDefault();
+
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
 
         const options = {
             method: "POST",
@@ -31,7 +31,7 @@ function Connexion() {
         const data = await response.json();
 
         if (response.status === 401 || !data.success) {
-            setMessage("Email ou mot de passe incorret");
+            setMessage("Email ou mot de passe incorrect");
             return;
         }
 
@@ -43,57 +43,38 @@ function Connexion() {
         const token = data.token;
         setMessage("Vous êtes connecté");
 
-
-        console.log(response.status);
-        console.log(response);
-        console.log(data);
-        localStorage.setItem("token", token);
-
-
+        sessionStorage.setItem("token", token);
         navigate("/profil");
 
     };
 
+    const spans = [];
+    for (let i = 0; i < 150; i++) {
+        spans.push(<span key={i} />);
+    }
+
     return (
         <div className='connexionContainer'>
             <section className='connexionAnimation'>
-                <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-                <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-
-                <div class="signin">
-
-                    <div class="content">
-
+                {spans}
+                <div className="signin">
+                    <div className="content">
                         <h2>Se connecter</h2>
-
-                        <div class="form">
-
+                        <div className="form">
                             <form onSubmit={login}>
-
-                                <div class="inputBox">
-                                    <input type="mail"
-                                        onChange={(e) => setEmail(e.target.value)}
-                                        value={email}
-                                        required /> <i>Email</i>
+                                <div className="inputBox">
+                                    <input type="email" id="email" required /> <i>Email</i>
                                 </div>
-
-                                <div class="inputBox">
-                                    <input type="password"
-                                        onChange={(e) => setPassword(e.target.value)}
-                                        required /> <i>Password</i>
-
+                                <div className="inputBox">
+                                    <input type="password" id="password" required /> <i>Password</i>
                                 </div>
-
-                                <div class="links"><Link to="/inscription">Pas encore de compte ? S'inscrire</Link>
+                                <div className="links">
+                                    <Link to="/inscription">Pas encore de compte ? S'inscrire</Link>
                                 </div>
-
-                                <div class="inputBox">
-
+                                <div className="inputBox">
                                     <input type="submit" value="Se connecter" />
                                     {message && <div className='messageContainer'>{message}</div>}
-
                                 </div>
-
                             </form>
                         </div>
                     </div>
@@ -101,8 +82,6 @@ function Connexion() {
             </section>
         </div>
     );
-
-
 }
 
 export default Connexion;

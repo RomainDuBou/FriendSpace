@@ -6,8 +6,9 @@ function Nav() {
     const navigate = useNavigate();
 
     const handleLogout = () => {
-     
-        localStorage.removeItem("token");
+
+        sessionStorage.removeItem("token");
+        sessionStorage.removeItem("postedMessages")
 
         navigate("/");
     };

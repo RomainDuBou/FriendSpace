@@ -1,8 +1,8 @@
 .inscriptionContainer .signin {
-    height: 90vh;
-    width: 40%;
-    overflow-y: scroll;
+  height: 70vh;
+  width: 40%;
+  overflow-y: scroll;
 }
 .inscriptionContainer h2 {
-   margin-top: 36%;
+  margin-top: 36%;
 }

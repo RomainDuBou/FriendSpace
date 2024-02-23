@@ -16,7 +16,7 @@ function Profil() {
 
     useEffect(() => {
         const fetchUser = async () => {
-            const token = localStorage.getItem("token");
+            const token = sessionStorage.getItem("token");
 
             if (!token) {
                 setMessage("Token non trouvé");

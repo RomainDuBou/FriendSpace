@@ -9,6 +9,35 @@ function MesPosts() {
     const [titlePost, setTitlePost] = useState("");
     const [postedMessages, setPostedMessages] = useState([]);
 
+    const [likes, setLikes] = useState(() => {
+        const savedLikes = JSON.parse(localStorage.getItem("likes")) || {};
+        return savedLikes;
+    });
+
+    const handleLike = async (index) => {
+        if (likes[index]) {    
+            const newLikes = { ...likes };
+            delete newLikes[index];
+            setLikes(newLikes);
+            localStorage.setItem("likes", JSON.stringify(newLikes));
+    
+            
+            const updatedMessages = [...postedMessages];
+            updatedMessages[index].likes = (updatedMessages[index].likes || 0) - 1;
+            setPostedMessages(updatedMessages);
+        } else {
+            
+            const newLikes = { ...likes, [index]: true };
+            setLikes(newLikes);
+            localStorage.setItem("likes", JSON.stringify(newLikes));
+    
+            
+            const updatedMessages = [...postedMessages];
+            updatedMessages[index].likes = (updatedMessages[index].likes || 0) +1;
+            setPostedMessages(updatedMessages);
+        }
+    };
+
     useEffect(() => {
         const token = sessionStorage.getItem("token");
         if (!token) {
@@ -86,6 +115,8 @@ function MesPosts() {
                             <img src="https://images.ctfassets.net/h6goo9gw1hh6/2sNZtFAWOdP1lmQ33VwRN3/24e953b920a9cd0ff2e1d587742a2472/1-intro-photo-final.jpg" alt="avatar" />
                             <h2>{message.title}</h2>
                             <p>{message.content}</p>
+                            <button onClick={() => handleLike(index)}>Like</button>
+                            <p> {message.likes || ""}</p>
                         </div>
                     ))}
                 </div>

@@ -7,6 +7,35 @@ import Nav from '../../Composants/Nav/Nav';
 function Accueil() {
     const [posts, setPosts] = useState([]);
 
+    const [likes, setLikes] = useState(() => {
+        const savedLikes = JSON.parse(localStorage.getItem("likes")) || {};
+        return savedLikes;
+    });
+
+    const handleLike = async (index) => {
+        if (likes[index]) {
+            const newLikes = { ...likes };
+            delete newLikes[index];
+            setLikes(newLikes);
+            localStorage.setItem("likes", JSON.stringify(newLikes));
+
+
+            const updatedMessages = [...posts];
+            updatedMessages[index].likes = (updatedMessages[index].likes || 0) - 1;
+            setPosts(updatedMessages);
+        } else {
+
+            const newLikes = { ...likes, [index]: true };
+            setLikes(newLikes);
+            localStorage.setItem("likes", JSON.stringify(newLikes));
+
+
+            const updatedMessages = [...posts];
+            updatedMessages[index].likes = (updatedMessages[index].likes || 0) + 1;
+            setPosts(updatedMessages);
+        }
+    };
+
     useEffect(() => {
         const fetchPosts = async () => {
             try {
@@ -37,6 +66,8 @@ function Accueil() {
                         <div className='singleMessage' key={index}>
                             <h2>{post.title}</h2>
                             <p>{post.content}</p>
+                            <button onClick={() => handleLike(index)}>Like</button>
+                            <p> {post.likes || ""}</p>
                         </div>
                     ))}
                 </div>

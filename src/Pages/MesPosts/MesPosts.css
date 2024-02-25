@@ -43,14 +43,16 @@ background-color: white;
 .postingContainer input {
 margin-top: 20px;
 margin-right: 20px;
-border-radius: 20%;
+border: none;
+border-radius: 5px;
+border-bottom: 1px solid green;
 }
 
 .buttons-container {
   width: 50%;
   height: 50vh;
-  margin-left: 540px;
-  margin-top: -60px;
+  margin-left: 510px;
+  margin-top: -35px;
  
 }
 
@@ -94,15 +96,19 @@ border-radius: 20%;
 
 .contentInput {
 width: 300px;
+height: 30px;
 
 }
 
 .post {
-  margin: 20px;
-  background-color: gray;
-  border-top-left-radius: 20%;
-  border-bottom-left-radius: 20px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  padding-bottom: 20px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-bottom: solid black;
+}
+
+#titlePost {
+
 }

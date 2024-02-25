@@ -17,31 +17,43 @@ function MesPosts() {
     });
 
     const handleLike = async (index) => {
-        // Vérifier si l'utilisateur a déjà aimé ce message
-        if (likes[index]) {
-            alert("Vous avez déjà aimé ce message !");
-            return;
+        if (likes[index]) {    
+            const newLikes = { ...likes };
+            delete newLikes[index];
+            setLikes(newLikes);
+            localStorage.setItem("likes", JSON.stringify(newLikes));
+    
+            
+            const updatedMessages = [...postedMessages];
+            updatedMessages[index].likes = (updatedMessages[index].likes || 0) + 1;
+            setPostedMessages(updatedMessages);
+        } else {
+            
+            const newLikes = { ...likes, [index]: true };
+            setLikes(newLikes);
+            localStorage.setItem("likes", JSON.stringify(newLikes));
+    
+            
+            const updatedMessages = [...postedMessages];
+            updatedMessages[index].likes = (updatedMessages[index].likes || 0) - 1;
+            setPostedMessages(updatedMessages);
         }
+    };
 
-        // Mettre à jour les likes dans le stockage local et dans l'état local
-        const newLikes = { ...likes, [index]: true };
-        setLikes(newLikes);
-        localStorage.setItem("likes", JSON.stringify(newLikes));
-
-        // Mettre à jour les likes du message
+    const handleDelete = (index) => {
         const updatedMessages = [...postedMessages];
-        updatedMessages[index].likes = (updatedMessages[index].likes || 0) + 1;
+        updatedMessages.splice(index, 1);
         setPostedMessages(updatedMessages);
     };
 
-    const handleComment = (index, comment) => {
-        const updatedMessages = [...postedMessages];
-        if (!updatedMessages[index].comments) {
-            updatedMessages[index].comments = [];
-        }
-        updatedMessages[index].comments.push(comment);
-        setPostedMessages(updatedMessages);
-    };
+    // const handleComment = (index, comment) => {
+    //     const updatedMessages = [...postedMessages];
+    //     if (!updatedMessages[index].comments) {
+    //         updatedMessages[index].comments = [];
+    //     }
+    //     updatedMessages[index].comments.push(comment);
+    //     setPostedMessages(updatedMessages);
+    // };
 
     const poster = async (e) => {
         e.preventDefault();
@@ -118,12 +130,13 @@ function MesPosts() {
                             <p>Atef Gaieb</p>
                             <h2>{message.title}</h2>
                             <p>{message.content}</p>
-                            <button onClick={() => handleLike(index)} disabled={likes[index]}>Like</button>
-                            <p>Likes: {message.likes || 0}</p>
+                            <button onClick={() => handleLike(index)}>Like</button>
+                            <p> {message.likes || ""}</p>
                             <input type="text" placeholder="Ajouter un commentaire" />
-                            <button onClick={() => handleComment(index)}>Commenter</button>
-                            {message.comments && message.comments.map((comment, idx) => (
-                                <p key={idx}>{comment}</p>
+                            <button>Commenter</button>
+                            <button onClick={() => handleDelete(index)}>Supprimer</button>
+                            {message.comments && message.comments.map((comment) => (
+                                <p>{comment}</p>
                             ))}
                         </div>
                     ))}
